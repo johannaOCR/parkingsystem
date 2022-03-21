@@ -10,6 +10,15 @@ public class Ticket {
     private double price;
     private Date inTime;
     private Date outTime;
+    private boolean isRecuringUser;
+
+    public boolean isRecuringUser() {
+        return isRecuringUser;
+    }
+
+    public void setRecuringUser(boolean recuringUser) {
+        isRecuringUser = recuringUser;
+    }
 
     public int getId() {
         return id;
