@@ -12,13 +12,21 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
 
 import java.util.Date;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@MockitoSettings(strictness = Strictness.LENIENT)
+
+
 public class ParkingServiceTest {
 
     private static ParkingService parkingService;
@@ -57,5 +65,14 @@ public class ParkingServiceTest {
         parkingService.processExitingVehicle();
         verify(parkingSpotDAO, Mockito.times(1)).updateParking(any(ParkingSpot.class));
     }
+
+    @Test
+    public void getVehicleTypeTest(){
+        when(inputReaderUtil.readSelection()).thenReturn(2);
+        ParkingType parkingTypeTest = parkingService.getVehichleType();
+        assertEquals(ParkingType.BIKE, parkingTypeTest);
+    }
+
+
 
 }
