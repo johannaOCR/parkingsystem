@@ -41,6 +41,7 @@ public class ParkingServiceTest {
     @BeforeEach
     private void setUpPerTest() {
         try {
+            when(inputReaderUtil.readSelection()).thenReturn(1);
             when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
 
             ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
