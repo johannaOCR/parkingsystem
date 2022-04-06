@@ -19,6 +19,7 @@ public class TicketDAO {
 
     public DataBaseConfig dataBaseConfig = new DataBaseConfig();
 
+    @edu.umd.cs.findbugs.annotations.SuppressFBWarnings("RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE")
     public boolean saveTicket(Ticket ticket) {
         Connection con = null;
         try {
@@ -33,6 +34,7 @@ public class TicketDAO {
             ps.setTimestamp(5, (ticket.getOutTime() == null) ? null : (new Timestamp(ticket.getOutTime().getTime())));
             ps.setBoolean(6, ticket.isRecuringUser());
             return ps.execute();
+            
         } catch (Exception ex) {
             logger.error("Error fetching next available slot", ex);
         } finally {
