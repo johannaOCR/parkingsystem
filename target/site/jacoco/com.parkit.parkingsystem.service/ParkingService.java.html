@@ -83,21 +83,21 @@ public class ParkingService {
 <span class="fc" id="L83">        return parkingSpot;</span>
     }
 
-    private ParkingType getVehichleType(){
+    public ParkingType getVehichleType(){
 <span class="fc" id="L87">        System.out.println(&quot;Please select vehicle type from menu&quot;);</span>
 <span class="fc" id="L88">        System.out.println(&quot;1 CAR&quot;);</span>
 <span class="fc" id="L89">        System.out.println(&quot;2 BIKE&quot;);</span>
 <span class="fc" id="L90">        int input = inputReaderUtil.readSelection();</span>
-<span class="pc bpc" id="L91" title="2 of 3 branches missed.">        switch(input){</span>
+<span class="fc bfc" id="L91" title="All 3 branches covered.">        switch(input){</span>
             case 1: {
 <span class="fc" id="L93">                return ParkingType.CAR;</span>
             }
             case 2: {
-<span class="nc" id="L96">                return ParkingType.BIKE;</span>
+<span class="fc" id="L96">                return ParkingType.BIKE;</span>
             }
             default: {
-<span class="nc" id="L99">                System.out.println(&quot;Incorrect input provided&quot;);</span>
-<span class="nc" id="L100">                throw new IllegalArgumentException(&quot;Entered input is invalid&quot;);</span>
+<span class="fc" id="L99">                System.out.println(&quot;Incorrect input provided&quot;);</span>
+<span class="fc" id="L100">                throw new IllegalArgumentException(&quot;Entered input is invalid&quot;);</span>
             }
         }
     }
@@ -110,14 +110,14 @@ public class ParkingService {
 <span class="fc" id="L110">            Date outTime = new Timestamp(date.getTime());</span>
 <span class="fc" id="L111">            ticket.setOutTime(outTime);</span>
 <span class="fc" id="L112">            fareCalculatorService.calculateFare(ticket);</span>
-<span class="pc bpc" id="L113" title="1 of 2 branches missed.">            if(ticketDAO.updateTicket(ticket)) {</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">            if(ticketDAO.updateTicket(ticket)) {</span>
 <span class="fc" id="L114">                ParkingSpot parkingSpot = ticket.getParkingSpot();</span>
 <span class="fc" id="L115">                parkingSpot.setAvailable(true);</span>
 <span class="fc" id="L116">                parkingSpotDAO.updateParking(parkingSpot);</span>
 <span class="fc" id="L117">                System.out.println(&quot;Please pay the parking fare:&quot; + ticket.getPrice());</span>
 <span class="fc" id="L118">                System.out.println(&quot;Recorded out-time for vehicle number:&quot; + ticket.getVehicleRegNumber() + &quot; is:&quot; + outTime);</span>
 <span class="fc" id="L119">            }else{</span>
-<span class="nc" id="L120">                System.out.println(&quot;Unable to update ticket information. Error occurred&quot;);</span>
+<span class="fc" id="L120">                System.out.println(&quot;Unable to update ticket information. Error occurred&quot;);</span>
             }
 <span class="nc" id="L122">        }catch(Exception e){</span>
 <span class="nc" id="L123">            logger.error(&quot;Unable to process exiting vehicle&quot;,e);</span>

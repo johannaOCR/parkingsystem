@@ -61,7 +61,14 @@ public class ParkingDataBaseIT {
         assertNotNull(ticketDAO.getTicket("ABCDEF"));
         assertFalse(ticketDAO.getTicket("ABCDEF").getParkingSpot().isAvailable());
     }
-
+    @Test
+    public void testParkingABike(){
+        when(inputReaderUtil.readSelection()).thenReturn(2);
+        ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+        parkingService.processIncomingVehicle();
+        assertNotNull(ticketDAO.getTicket("ABCDEF"));
+        assertFalse(ticketDAO.getTicket("ABCDEF").getParkingSpot().isAvailable());
+    }
     @Test
     public void testParkingLotExit(){
         testParkingACar();
@@ -69,6 +76,11 @@ public class ParkingDataBaseIT {
         parkingService.processExitingVehicle();
         assertEquals(0,ticketDAO.getTicket("ABCDEF").getPrice());
         assertNotNull(ticketDAO.getTicket("ABCDEF").getOutTime());
+    }
+
+    @Test
+    public void testUpdateTicket(){
+
     }
 
 }
