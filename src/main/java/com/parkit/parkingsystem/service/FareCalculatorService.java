@@ -11,7 +11,7 @@ public class FareCalculatorService {
     @SuppressFBWarnings("ICAST_IDIV_CAST_TO_DOUBLE")
     public void calculateFare(Ticket ticket){
         if( (ticket.getOutTime() == null) || (ticket.getOutTime().before(ticket.getInTime())) ){
-            throw new IllegalArgumentException("Out time provided is incorrect:"+ticket.getOutTime().toString());
+            throw new IllegalArgumentException("Out time provided is incorrect:"+ticket.getOutTime().toString()+"in time = "+ticket.getInTime().toString());
         }
 
         Date inHour = ticket.getInTime();

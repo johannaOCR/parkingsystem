@@ -1,5 +1,8 @@
 package com.parkit.parkingsystem.model;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
+import javax.annotation.Nullable;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -32,9 +35,9 @@ public class Ticket {
         return new ParkingSpot(this.parkingSpot.getId(), this.parkingSpot.getParkingType(), this.parkingSpot.isAvailable());
     }
 
+    @SuppressFBWarnings("EI_EXPOSE_REP2")
     public void setParkingSpot(ParkingSpot parkingSpot) {
-        ParkingSpot parkingSpot1 = new ParkingSpot(this.parkingSpot.getId(), this.parkingSpot.getParkingType(), this.parkingSpot.isAvailable());
-        this.parkingSpot = parkingSpot1;
+        this.parkingSpot = parkingSpot;
     }
 
     public String getVehicleRegNumber() {
@@ -64,13 +67,23 @@ public class Ticket {
     }
 
     public Date getOutTime() {
-        Date ladate = new Date();
-        ladate.setTime(outTime.getTime());
-        return ladate;
+        if(outTime != null){
+            Date ladate = new Date();
+            ladate.setTime(outTime.getTime());
+            return ladate;
+        } else {
+            return null;
+        }
+
     }
 
     public void setOutTime(Date outTime) {
-        Date outTime1 = new Date(outTime.getTime());
-        this.outTime = outTime1;
+        if(outTime!=null){
+            Date outTime1 = new Date(outTime.getTime());
+            this.outTime = outTime1;
+        } else {
+            this.outTime = null;
+        }
+
     }
 }

@@ -13,4 +13,8 @@ public class DBConstants {
             "where p.parking_number = t.parking_number and t.VEHICLE_REG_NUMBER=? " +
             "order by t.IN_TIME  " +
             "limit 1";
+    public static final String host = "jdbc:mysql://localhost:3306/dev?serverTimezone=UTC";
+    public static final String dbuser ="root";
+    public static final String password ="root root";
+
 }

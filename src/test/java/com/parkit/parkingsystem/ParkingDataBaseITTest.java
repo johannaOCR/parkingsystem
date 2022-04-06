@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-public class ParkingDataBaseIT {
+public class ParkingDataBaseITTest {
 
     private static DataBaseTestConfig dataBaseTestConfig = new DataBaseTestConfig();
     private static ParkingSpotDAO parkingSpotDAO;
@@ -76,11 +76,6 @@ public class ParkingDataBaseIT {
         parkingService.processExitingVehicle();
         assertEquals(0,ticketDAO.getTicket("ABCDEF").getPrice());
         assertNotNull(ticketDAO.getTicket("ABCDEF").getOutTime());
-    }
-
-    @Test
-    public void testUpdateTicket(){
-
     }
 
 }

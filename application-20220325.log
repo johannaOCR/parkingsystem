@@ -224,7 +224,7 @@
 java.lang.IllegalArgumentException: Out time provided is incorrect:2022-03-25 13:17:03.99
 	at com.parkit.parkingsystem.service.FareCalculatorService.calculateFare(FareCalculatorService.java:12) ~[classes/:?]
 	at com.parkit.parkingsystem.service.ParkingService.processExitingVehicle(ParkingService.java:112) ~[classes/:?]
-	at com.parkit.parkingsystem.ParkingDataBaseIT.testParkingLotExit(ParkingDataBaseIT.java:69) ~[test-classes/:?]
+	at com.parkit.parkingsystem.ParkingDataBaseITTest.testParkingLotExit(ParkingDataBaseIT.java:69) ~[test-classes/:?]
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_202]
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_202]
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_202]

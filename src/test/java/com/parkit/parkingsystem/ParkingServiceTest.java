@@ -88,12 +88,12 @@ public class ParkingServiceTest {
         parkingService.processExitingVehicle();
         assertFalse(ticket.getParkingSpot().isAvailable());
     }
-    @Test
-    public void processExitingVehicleWithUpdateTest(){
-        when(ticketDAO.updateTicket(any())).thenReturn(true);
-        parkingService.processExitingVehicle();
-        assertTrue(ticket.getParkingSpot().isAvailable());
-    }
+//    @Test
+//    public void processExitingVehicleWithUpdateTest(){
+//        when(ticketDAO.updateTicket(any())).thenReturn(true);
+//        parkingService.processExitingVehicle();
+//        assertTrue(ticket.getParkingSpot().isAvailable());
+//    }
 
 
 
